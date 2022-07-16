@@ -1,78 +1,11 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import qrcodeParser from 'qrcode-parser';
 import * as OTPAuth from 'otpauth';
-import TextField from '@mui/material/TextField';
 import { CircularProgress, Grid, Stack, Typography } from '@mui/material';
-import { createStyles, withStyles } from '@mui/styles';
-import {
-  writeFile,
-  Dir,
-  readDir,
-  createDir,
-  readTextFile,
-} from '@tauri-apps/api/fs';
-import { appDir } from '@tauri-apps/api/path';
-
-const StyledTypography = withStyles(() =>
-  createStyles({
-    root: {
-      height: '1.75rem',
-      display: 'flex',
-      flexDirection: 'column',
-      verticalAlign: 'middle',
-      justifyContent: 'center',
-    },
-  })
-)(Typography);
-
-const StyledTextField = withStyles(() =>
-  createStyles({
-    root: {
-      width: 'calc(100% - 3rem)',
-      '& .MuiInputBase-input': {
-        padding: '0.5rem',
-      },
-    },
-  })
-)(TextField);
-
-const useFile = () => {
-  const [appDirPath, setAppDirPath] = useState('');
-  const loadAppDirPath = useCallback(
-    async () => setAppDirPath(await appDir()),
-    []
-  );
-
-  loadAppDirPath();
-
-  const readTextFileFromAppDir = async (file: string) => {
-    return readTextFile(`${appDirPath}/${file}`);
-  };
-
-  const writeTextFileToAppDir = async (file: string, contents: string) => {
-    try {
-      await readDir(appDirPath);
-    } catch (err) {
-      await createDir(appDirPath, { recursive: true });
-    }
-    await writeFile(
-      {
-        path: `${appDirPath}/${file}`,
-        contents,
-      },
-      {
-        dir: Dir.App,
-      }
-    );
-  };
-
-  return {
-    appDirPath,
-    readTextFileFromAppDir,
-    writeTextFileToAppDir,
-  };
-};
+import StyledTypography from './components/StyledTypography';
+import useFile from './hooks/useFile';
+import StyledTextField from './components/StyledTextField';
 
 function TotpItem({ otp }: { otp: OTPAuth.HOTP | OTPAuth.TOTP }) {
   const [token, setToken] = useState<string | undefined>();
@@ -134,12 +67,12 @@ function App() {
   const [otps, setOtps] = useState<string[]>([]);
   const [error, setError] = useState('');
   const [contents, setContents] = useState('');
-  const { appDirPath, readTextFileFromAppDir, writeTextFileToAppDir } =
+  const { dataDirPath, readTextFileFromAppDir, writeTextFileToAppDir } =
     useFile();
 
   useEffect(() => {
     const callback = async () =>
-      appDirPath ? readTextFileFromAppDir('totp.txt') : undefined;
+      dataDirPath ? readTextFileFromAppDir('totp.txt') : undefined;
     callback().then((value) => {
       if (value) {
         setContents(value);
@@ -149,7 +82,7 @@ function App() {
         }
       }
     });
-  }, [appDirPath]);
+  }, [dataDirPath]);
 
   const handleInput = async (event: React.FormEvent<HTMLInputElement>) => {
     try {
