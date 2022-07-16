@@ -38,27 +38,24 @@ function TotpItem({ otp }: { otp: OTPAuth.HOTP | OTPAuth.TOTP }) {
 
   return (
     <Grid container spacing={2}>
-      <Grid item xs={3} />
-      <Grid item xs={6}>
+      <Grid item xs={1} />
+      <Grid item xs={5}>
         <Stack>
           <Typography variant="h6" sx={{ textAlign: 'left' }}>
             {otp?.issuer}
           </Typography>
-          <Typography variant="h6" sx={{ textAlign: 'left' }}>
+          <Typography variant="body1" sx={{ textAlign: 'left' }}>
             {otp.label}
           </Typography>
         </Stack>
       </Grid>
-      <Grid item xs={3} />
 
-      <Grid item xs={1} />
-      <Grid item xs={6}>
+      <Grid item xs={4} sx={{ marginTop: '1rem' }}>
         <StyledTypography variant="h3">{token}</StyledTypography>
       </Grid>
-      <Grid item xs={2}>
+      <Grid item xs={1} sx={{ marginTop: '0.75rem' }}>
         <CircularProgress variant="determinate" value={(limit / 30) * 100} />
       </Grid>
-      <Grid item xs={3} />
     </Grid>
   );
 }
