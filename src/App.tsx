@@ -2,84 +2,42 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import qrcodeParser from 'qrcode-parser';
 import * as OTPAuth from 'otpauth';
-import { CircularProgress, Grid, Stack, Typography } from '@mui/material';
-import StyledTypography from './components/StyledTypography';
+import { Alert, Grid } from '@mui/material';
 import useFile from './hooks/useFile';
 import StyledTextField from './components/StyledTextField';
-
-function TotpItem({ otp }: { otp: OTPAuth.HOTP | OTPAuth.TOTP }) {
-  const [token, setToken] = useState<string | undefined>();
-  const [now, setNow] = useState<Date | undefined>();
-  const [validate, setValidate] = useState<boolean>(false);
-  const [limit, setLimit] = useState(0);
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setNow(new Date());
-      if (limit === 1 || !validate) {
-        if (otp) {
-          const currentToken = otp.generate();
-          setToken(currentToken);
-          const delta = otp.validate({
-            token: currentToken,
-            window: 1,
-          });
-          setValidate(delta != null && delta >= 0);
-        }
-      }
-      if (otp) {
-        setLimit(() => (limit > 1 ? limit - 1 : 30));
-      }
-    }, 1000);
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, [now, limit, token, otp, validate]);
-
-  return (
-    <Grid container spacing={2}>
-      <Grid item xs={1} />
-      <Grid item xs={5}>
-        <Stack>
-          <Typography variant="h6" sx={{ textAlign: 'left' }}>
-            {otp?.issuer}
-          </Typography>
-          <Typography variant="body1" sx={{ textAlign: 'left' }}>
-            {otp.label}
-          </Typography>
-        </Stack>
-      </Grid>
-
-      <Grid item xs={4} sx={{ marginTop: '1rem' }}>
-        <StyledTypography variant="h3">{token}</StyledTypography>
-      </Grid>
-      <Grid item xs={1} sx={{ marginTop: '0.75rem' }}>
-        <CircularProgress variant="determinate" value={(limit / 30) * 100} />
-      </Grid>
-    </Grid>
-  );
-}
+import TotpItem from './components/TotpItem';
 
 function App() {
   const [otps, setOtps] = useState<string[]>([]);
-  const [error, setError] = useState('');
+  const [error, setError] = useState<string>();
   const [contents, setContents] = useState('');
-  const { dataDirPath, readTextFileFromAppDir, writeTextFileToAppDir } =
-    useFile();
+  const { readTextFileFromAppDir, writeTextFileToAppDir } = useFile((e) =>
+    setError(e)
+  );
 
   useEffect(() => {
-    const callback = async () =>
-      dataDirPath ? readTextFileFromAppDir('totp.txt') : undefined;
+    const callback = async () => readTextFileFromAppDir();
     callback().then((value) => {
       if (value) {
         setContents(value);
-        value.split('\n').map((v) => OTPAuth.URI.parse(v));
-        if (!otps.includes(value)) {
-          setOtps(otps.concat(value));
+        const values = value.split('\n').filter((l) => l.length > 0);
+        try {
+          values.map((v) => {
+            return OTPAuth.URI.parse(v);
+          });
+          if (!otps.includes(value)) {
+            setOtps(otps.concat(value));
+          }
+        } catch (err) {
+          setError(JSON.stringify(err));
         }
       }
     });
-  }, [dataDirPath]);
+  }, []);
+
+  const handleClose = () => {
+    setError(undefined);
+  };
 
   const handleInput = async (event: React.FormEvent<HTMLInputElement>) => {
     try {
@@ -93,8 +51,9 @@ function App() {
       if (!otps.includes(instance.toString())) {
         setOtps(otps.concat(instance.toString()));
         writeTextFileToAppDir(
-          'totp.txt',
-          `${contents}\n${instance.toString()}`
+          contents.length > 0
+            ? `${contents}\n${instance.toString()}`
+            : instance.toString()
         );
       }
     } catch (e: unknown) {
@@ -113,10 +72,20 @@ function App() {
             <TotpItem key={otp} otp={OTPAuth.URI.parse(otp)} />
           </Grid>
         ))}
-        <Grid item xs={12}>
-          <Typography variant="body2">{error}</Typography>
-        </Grid>
       </Grid>
+      <Alert
+        onClose={handleClose}
+        severity="error"
+        sx={{
+          width: 'calc(100% - 1rem)',
+          position: 'absolute',
+          bottom: '0.5rem',
+          left: '0.5rem',
+          visibility: error ? 'visible' : 'hidden',
+        }}
+      >
+        {error}
+      </Alert>
     </div>
   );
 }

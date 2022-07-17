@@ -1,45 +1,36 @@
-import {
-  writeFile,
-  Dir,
-  readDir,
-  createDir,
-  readTextFile,
-} from '@tauri-apps/api/fs';
-import { dataDir } from '@tauri-apps/api/path';
-import { useState, useCallback } from 'react';
+import { invoke } from '@tauri-apps/api/tauri';
 
-const useFile = () => {
-  const [dataDirPath, setAppDirPath] = useState('');
-  const loadAppDirPath = useCallback(
-    async () => setAppDirPath(await dataDir()),
-    []
-  );
+// eslint-disable-next-line no-unused-vars
+type ErrorHandler = (error: string) => void;
 
-  loadAppDirPath();
+interface LoadReaponse {
+  error: boolean;
+  message: string;
+  contents: string;
+}
 
-  const readTextFileFromAppDir = async (file: string) => {
-    return readTextFile(`${dataDirPath}/${file}`);
+const useFile = (onError: ErrorHandler) => {
+  const readTextFileFromAppDir = async () => {
+    return invoke<LoadReaponse>('load')
+      .then(({ error, message, contents }) => {
+        if (error) {
+          onError(message);
+          return '';
+        }
+        return contents;
+      })
+      .catch(onError);
   };
 
-  const writeTextFileToAppDir = async (file: string, contents: string) => {
-    try {
-      await readDir(dataDirPath);
-    } catch (err) {
-      await createDir(dataDirPath, { recursive: true });
-    }
-    await writeFile(
-      {
-        path: `${dataDirPath}/${file}`,
+  const writeTextFileToAppDir = async (contents: string) => {
+    invoke('save', {
+      body: {
         contents,
       },
-      {
-        dir: Dir.Data,
-      }
-    );
+    }).catch(onError);
   };
 
   return {
-    dataDirPath,
     readTextFileFromAppDir,
     writeTextFileToAppDir,
   };
