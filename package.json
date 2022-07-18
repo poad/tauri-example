@@ -30,7 +30,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "tauri": "tauri",
-    "lint": "eslint --ext .ts,.js,.tsx,.jsx src"
+    "lint": "eslint --ext .ts,.js,.tsx,.jsx src",
+    "audit-fix": "yarn-audit-fix"
   },
   "eslintConfig": {
     "extends": [
@@ -66,6 +67,7 @@
     "eslint-plugin-react-hooks": "*",
     "jest": "*",
     "prettier": "*",
-    "ts-jest": "*"
+    "ts-jest": "*",
+    "yarn-audit-fix": "^9.3.2"
   }
 }
