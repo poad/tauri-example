@@ -36,14 +36,17 @@ jobs:
         config:
           - { os: windows-latest, target: 'x86_64-pc-windows-msvc' }
           - { os: macOS-11, target: 'x86_64-apple-darwin' }
-          - { os: ubuntu-20.04, target: 'x86_64-unknown-linux-gnu' }
-          - { os: ubuntu-20.04, target: 'x86_64-unknown-linux-musl' }
+          - { os: ubuntu-latest, target: 'x86_64-unknown-linux-gnu' }
+          - { os: ubuntu-latest, target: 'x86_64-unknown-linux-musl' }
           # - { os: windows-latest, target: 'arch64-pc-windows-msvc' }
           # - { os: macOS-11, target: 'aarch64-apple-darwin' }
-          # - { os: ubuntu-20.04, target: 'aarch64-unknown-linux-gnu' }
-          # - { os: ubuntu-20.04, target: 'aarch64-unknown-linux-musl' }
+          # - { os: ubuntu-latest, target: 'aarch64-unknown-linux-gnu' }
+          # - { os: ubuntu-latest, target: 'aarch64-unknown-linux-musl' }
 
     steps:
+    - name: Install dependency package
+      if: matrix.config.os == 'ubuntu-latest'
+      run: sudo apt-get install -y libgtk-3-dev webkit2gtk-4.0 libayatana-appindicator3-dev librsvg2-dev patchelf
     - name: Add cross build targets
       run: rustup target add ${{ matrix.config.target }}
     - name: Update Rust toolchain
@@ -62,4 +65,6 @@ jobs:
         npm -g i npm
         npm -g i yarn
     - name: Build
+      env:
+        BUILD_PATH: ./dist 
       run: yarn install && yarn lint && yarn build && yarn tauri build

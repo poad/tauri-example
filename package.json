@@ -26,7 +26,7 @@
   },
   "scripts": {
     "start": "cross-env BROWSER=none react-scripts start",
-    "build": "BUILD_PATH=./dist react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "tauri": "tauri",
@@ -71,6 +71,7 @@
     "yarn-audit-fix": "^9.3.2"
   },
   "resolutions": {
-    "nth-check": ">=2.0.1"
+    "nth-check": ">=2.0.1",
+    "glob-parent": ">=6.0.1"
   }
 }
