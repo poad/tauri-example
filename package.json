@@ -1,0 +1,71 @@
+{
+  "name": "tauri-app",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "@emotion/react": "*",
+    "@emotion/styled": "*",
+    "@mui/icons-material": "*",
+    "@mui/material": "*",
+    "@mui/styles": "*",
+    "@tauri-apps/api": "*",
+    "@testing-library/jest-dom": "*",
+    "@testing-library/react": "*",
+    "@testing-library/user-event": "*",
+    "@types/jest": "*",
+    "@types/node": "*",
+    "@types/react": "*",
+    "@types/react-dom": "*",
+    "otpauth": "*",
+    "qrcode-parser": "*",
+    "react": "*",
+    "react-dom": "*",
+    "react-scripts": "*",
+    "typescript": "*",
+    "web-vitals": "*"
+  },
+  "scripts": {
+    "start": "cross-env BROWSER=none react-scripts start",
+    "build": "BUILD_PATH=./dist react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "tauri": "tauri",
+    "lint": "eslint --ext .ts,.js,.tsx,.jsx src"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "*",
+    "@typescript-eslint/eslint-plugin": "*",
+    "@typescript-eslint/parser": "*",
+    "cross-env": "*",
+    "eslint": "*",
+    "eslint-config-airbnb": "*",
+    "eslint-config-import": "*",
+    "eslint-config-prettier": "*",
+    "eslint-plugin-import": "*",
+    "eslint-plugin-jsx-a11y": "*",
+    "eslint-plugin-prettier": "*",
+    "eslint-plugin-react": "*",
+    "eslint-plugin-react-hooks": "*",
+    "jest": "*",
+    "prettier": "*",
+    "ts-jest": "*"
+  }
+}
