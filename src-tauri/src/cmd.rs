@@ -20,6 +20,7 @@ pub struct LoadReaponse {
 }
 
 async fn write_to_file(path: PathBuf, mut contents: String) -> std::io::Result<()> {
+  println!("{}", &contents);
   let mut f = File::create(path)?;
   let body = unsafe { contents.as_mut_str().as_bytes_mut() };
   f.write_all(body)?;

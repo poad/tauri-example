@@ -11,12 +11,10 @@ function App() {
   const [otps, setOtps] = useState<string[]>([]);
   const [error, setError] = useState<string>();
   const [contents, setContents] = useState('');
-  const { readTextFileFromAppDir, writeTextFileToAppDir } = useFile((e) =>
-    setError(e)
-  );
+  const { readTextFile, writeTextFile } = useFile((e) => setError(e));
 
   useEffect(() => {
-    const callback = async () => readTextFileFromAppDir();
+    const callback = async () => readTextFile();
     callback().then((value) => {
       if (value) {
         setContents(value);
@@ -50,7 +48,7 @@ function App() {
       const instance = OTPAuth.URI.parse(parsed);
       if (!otps.includes(instance.toString())) {
         setOtps(otps.concat(instance.toString()));
-        writeTextFileToAppDir(
+        writeTextFile(
           contents.length > 0
             ? `${contents}\n${instance.toString()}`
             : instance.toString()
@@ -58,6 +56,45 @@ function App() {
       }
     } catch (e: unknown) {
       setError(JSON.stringify(e));
+    }
+  };
+
+  const genNewOpts = (otp: string): { found: boolean; newOtps: string[] } => {
+    const index = otps.findIndex((item) => item === otp);
+    if (index >= 0) {
+      if (otps.length === 1) {
+        return {
+          found: true,
+          newOtps: [],
+        };
+      }
+      if (index === 0) {
+        return {
+          found: true,
+          newOtps: otps.slice(index + 1),
+        };
+      }
+      return {
+        found: true,
+        newOtps: otps.slice(0, index).concat(otps.slice(index + 1)),
+      };
+    }
+    return {
+      found: false,
+      newOtps: otps,
+    };
+  };
+
+  const handleDelete = (otp: OTPAuth.HOTP | OTPAuth.TOTP) => {
+    const otpStr = otp.toString();
+    const { found, newOtps } = genNewOpts(otpStr);
+    if (found) {
+      const outputContents =
+        newOtps.length > 0
+          ? newOtps.reduce((acc, cur) => `${acc}\n${cur}`)
+          : '';
+      writeTextFile(outputContents);
+      setOtps(newOtps);
     }
   };
 
@@ -69,7 +106,11 @@ function App() {
         </Grid>
         {otps.map((otp) => (
           <Grid key={otp} item xs={12}>
-            <TotpItem key={otp} otp={OTPAuth.URI.parse(otp)} />
+            <TotpItem
+              key={otp}
+              otp={OTPAuth.URI.parse(otp)}
+              onDelete={(o) => handleDelete(o)}
+            />
           </Grid>
         ))}
       </Grid>

@@ -10,7 +10,7 @@ interface LoadReaponse {
 }
 
 const useFile = (onError: ErrorHandler) => {
-  const readTextFileFromAppDir = async () => {
+  const readTextFile = async () => {
     return invoke<LoadReaponse>('load')
       .then(({ error, message, contents }) => {
         if (error) {
@@ -22,7 +22,7 @@ const useFile = (onError: ErrorHandler) => {
       .catch(onError);
   };
 
-  const writeTextFileToAppDir = async (contents: string) => {
+  const writeTextFile = async (contents: string) => {
     invoke('save', {
       body: {
         contents,
@@ -31,8 +31,8 @@ const useFile = (onError: ErrorHandler) => {
   };
 
   return {
-    readTextFileFromAppDir,
-    writeTextFileToAppDir,
+    readTextFile,
+    writeTextFile,
   };
 };
 
