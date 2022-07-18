@@ -1,0 +1,66 @@
+name: Build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request_target:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+env:
+  CARGO_TERM_COLOR: always
+
+permissions: write-all
+
+jobs:
+  configure:
+    runs-on: ubuntu-latest
+    if: github.actor != 'dependabot[bot]'
+    steps:
+      - name: Pull request auto merge enabler
+        if: github.event_name == 'pull_request' && github.actor != 'dependabot[bot]'
+        uses: poad/github-pull-request-auto-merge-enable-action@v1.0.2
+        with:
+          pull_request_id: ${{ github.event.pull_request.node_id }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.event.repository.name }}
+          owner: ${{ github.repository_owner }}
+          merge_method: SQUASH
+
+  build:
+    runs-on: ${{ matrix.config.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+          - { os: windows-latest, target: 'x86_64-pc-windows-msvc' }
+          - { os: macOS-11, target: 'x86_64-apple-darwin' }
+          - { os: ubuntu-20.04, target: 'x86_64-unknown-linux-gnu' }
+          - { os: ubuntu-20.04, target: 'x86_64-unknown-linux-musl' }
+          # - { os: windows-latest, target: 'arch64-pc-windows-msvc' }
+          # - { os: macOS-11, target: 'aarch64-apple-darwin' }
+          # - { os: ubuntu-20.04, target: 'aarch64-unknown-linux-gnu' }
+          # - { os: ubuntu-20.04, target: 'aarch64-unknown-linux-musl' }
+
+    steps:
+    - name: Add cross build targets
+      run: rustup target add ${{ matrix.config.target }}
+    - name: Update Rust toolchain
+      run: rustup update
+    - name: Install cross
+      run: cargo install cross
+    - uses: actions/checkout@v3
+    - name: Use Node.js 16.x
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16.x
+        check-latest: true
+        cache: 'yarn'
+        cache-dependency-path: tests/infra/yarn.lock
+    - name: Install yarn
+      run: |
+        npm -g i npm
+        npm -g i yarn
+    - name: Build
+      run: yarn install && yarn lint && yarn build && yarn tauri build
