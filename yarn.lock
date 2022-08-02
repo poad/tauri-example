@@ -3372,7 +3372,7 @@ browser-process-hrtime@^1.0.0:
   resolved "https://registry.yarnpkg.com/browser-process-hrtime/-/browser-process-hrtime-1.0.0.tgz#3c9b4b7d782c8121e56f10106d84c0d0ffc94626"
   integrity sha512-9o5UecI3GhkpM6DrXr69PblIuWxPKk9Y0jHBRhdocZ2y7YECBFCsHm79Pr3OyR2AvjhDkabFJaDJMYRazHgsow==
 
-browserslist@^4.0.0, browserslist@^4.14.5, browserslist@^4.16.6, browserslist@^4.18.1, browserslist@^4.20.2, browserslist@^4.20.3, browserslist@^4.21.0, browserslist@^4.21.2, browserslist@^4.21.3:
+browserslist@^4.0.0, browserslist@^4.14.5, browserslist@^4.16.6, browserslist@^4.18.1, browserslist@^4.20.2, browserslist@^4.20.3, browserslist@^4.21.0, browserslist@^4.21.3:
   version "4.21.3"
   resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-4.21.3.tgz#5df277694eb3c48bc5c4b05af3e8b7e09c5a6d1a"
   integrity sha512-898rgRXLAyRkM1GryrrBHGkqA5hlpkV5MhtZwg9QXeiyLUYs2k00Un05aX5l2/yJIOObYKOpS2JNo8nJDE7fWQ==
@@ -3738,11 +3738,11 @@ cookie@0.5.0:
   integrity sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw==
 
 core-js-compat@^3.21.0, core-js-compat@^3.22.1:
-  version "3.24.0"
-  resolved "https://registry.yarnpkg.com/core-js-compat/-/core-js-compat-3.24.0.tgz#885958fac38bf3f4464a90f2663b4620f6aee6e3"
-  integrity sha512-F+2E63X3ff/nj8uIrf8Rf24UDGIz7p838+xjEp+Bx3y8OWXj+VTPPZNCtdqovPaS9o7Tka5mCH01Zn5vOd6UQg==
+  version "3.24.1"
+  resolved "https://registry.yarnpkg.com/core-js-compat/-/core-js-compat-3.24.1.tgz#d1af84a17e18dfdd401ee39da9996f9a7ba887de"
+  integrity sha512-XhdNAGeRnTpp8xbD+sR/HFDK9CbeeeqXT6TuofXh3urqEevzkWmLRgrVoykodsw8okqo2pu1BOmuCKrHx63zdw==
   dependencies:
-    browserslist "^4.21.2"
+    browserslist "^4.21.3"
     semver "7.0.0"
 
 core-js-pure@^3.20.2, core-js-pure@^3.8.1:
@@ -4328,9 +4328,9 @@ ejs@^3.1.6:
     jake "^10.8.5"
 
 electron-to-chromium@^1.4.202:
-  version "1.4.206"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.206.tgz#580ff85b54d7ec0c05f20b1e37ea0becdd7b0ee4"
-  integrity sha512-h+Fadt1gIaQ06JaIiyqPsBjJ08fV5Q7md+V8bUvQW/9OvXfL2LRICTz2EcnnCP7QzrFTS6/27MRV6Bl9Yn97zA==
+  version "1.4.208"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.208.tgz#ecb5b47c8cc212a43172ffc5ce50178a638a5d74"
+  integrity sha512-diMr4t69FigAGUk2KovP0bygEtN/9AkqEVkzjEp0cu+zFFbZMVvwACpTTfuj1mAmFR5kNoSW8wGKDFWIvmThiQ==
 
 emittery@^0.10.2:
   version "0.10.2"
