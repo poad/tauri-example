@@ -7399,9 +7399,9 @@ optionator@^0.9.1:
     word-wrap "^1.2.3"
 
 otpauth@*:
-  version "8.0.1"
-  resolved "https://registry.yarnpkg.com/otpauth/-/otpauth-8.0.1.tgz#41eefecea6c928ba90d2edd10252965164569bc8"
-  integrity sha512-m39abRFJ3XMchK6Or9TOxErai3X8pk4/DpArOygYguBRYtRaVT53hL6+PV5BxYWVkcnIkPQqJg36ijvD8FvqSA==
+  version "8.0.2"
+  resolved "https://registry.yarnpkg.com/otpauth/-/otpauth-8.0.2.tgz#675e28a960543ff281cdcbe3ab39089940a125a3"
+  integrity sha512-Hj5IvDdhte1dmjBkWZ3K8DfQVt4LQycd4mtRVyRTWtYiXuqaDSF4+d7UDPqZO/JRWXDktEmDHqymA+hHj9NEqQ==
   dependencies:
     jssha "~3.2.0"
 
