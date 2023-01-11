@@ -1605,12 +1605,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "paste"
-version = "1.0.11"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d01a5bd0424d00070b0098dd17ebca6f961a959dead1dbcbbbc1d1cd8d3deeba"
-
-[[package]]
 name = "percent-encoding"
 version = "2.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2357,9 +2351,9 @@ dependencies = [
 
 [[package]]
 name = "tao"
-version = "0.15.8"
+version = "0.15.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ac8e6399427c8494f9849b58694754d7cc741293348a6836b6c8d2c5aa82d8e6"
+checksum = "65aba6ab43add1001b3851e53b0b270d5047aa75d8217055e1635c7915c750d0"
 dependencies = [
  "bitflags",
  "cairo-rs",
@@ -2389,16 +2383,27 @@ dependencies = [
  "objc",
  "once_cell",
  "parking_lot",
- "paste",
  "png",
  "raw-window-handle",
  "scopeguard",
  "serde",
+ "tao-macros",
  "unicode-segmentation",
  "uuid 1.2.2",
  "windows",
  "windows-implement",
  "x11-dl",
+]
+
+[[package]]
+name = "tao-macros"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "3b6fcd8245d45a39ffc8715183d92ae242750eb57b285eb3bcd63dfd512afd09"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn",
 ]
 
 [[package]]
