@@ -3999,9 +3999,9 @@ css.escape@^1.5.1:
   integrity sha512-YUifsXXuknHlUsmlgyY0PKzgPOr7/FjCePfHNt0jxm83wHZi44VDMQ7/fGNkjY3/jV1MC+1CmZbaHzugyeRtpg==
 
 cssdb@^7.1.0:
-  version "7.2.1"
-  resolved "https://registry.yarnpkg.com/cssdb/-/cssdb-7.2.1.tgz#f6f59e2c4249bcb5ca5606fc4ab6f9a808d55486"
-  integrity sha512-btohrCpVaLqOoMt90aumHe6HU4c06duiYA8ymwtpGfwuZAhWKDBve/c2k+E85Jeq5iojPkeonqiKV+aLeY8QlA==
+  version "7.3.0"
+  resolved "https://registry.yarnpkg.com/cssdb/-/cssdb-7.3.0.tgz#b1d4580a21da34f792047ad0556fbb4b53617ead"
+  integrity sha512-9YymIstaCsXo9qQSxrXzOv27bXJmb/q/LkbORepKzKjHE0TS6Pn3ewoazoBDGvODUvPO0pMG2O4YzVGmVGYK5A==
 
 cssesc@^3.0.0:
   version "3.0.0"
