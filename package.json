@@ -69,7 +69,7 @@
     "jest": "*",
     "prettier": "*",
     "ts-jest": "*",
-    "yarn-audit-fix": "^9.3.8"
+    "yarn-audit-fix": "^9.3.9"
   },
   "resolutions": {
     "nth-check": ">=2.0.1",
