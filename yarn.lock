@@ -7419,10 +7419,10 @@ minimalistic-assert@^1.0.0:
   resolved "https://registry.yarnpkg.com/minimalistic-assert/-/minimalistic-assert-1.0.1.tgz#2e194de044626d4a10e7f7fbc00ce73e83e4d5c7"
   integrity sha512-UtJcAD4yEaGtjPezWuO9wC4nwUnVH/8/Im3yEHQP4b67cXlD/Qr9hdITCU1xDbSEXg2XKNaP8jsReV7vQd00/A==
 
-minimatch@>=3.0.5, minimatch@>=7.0.0, minimatch@^3.0.4, minimatch@^3.0.5, minimatch@^3.1.1, minimatch@^3.1.2, minimatch@^5.0.1:
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-7.0.0.tgz#20a8df098715e228c918b2bd81f34d9543767a75"
-  integrity sha512-Wog4y1P2q/0sF+0vw+6dWgqVmo/XPJg+2OtVmR6IVvNGDhcfAPjFacjZCUlGCoU/tbzH6EOeSt2P3llRAqRNiA==
+minimatch@>=3.0.5, minimatch@>=7.0.1, minimatch@^3.0.4, minimatch@^3.0.5, minimatch@^3.1.1, minimatch@^3.1.2, minimatch@^5.0.1:
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-7.0.1.tgz#346583590577d192cab9b88514f1832b9509d737"
+  integrity sha512-C4CrOG1kAnaIxQPTAoiAmZCR2up1yjDdseGpr8UCUw5UqBUao5E1q2bOv0cAX0+y8MUxcyrvkTsoj5DvGRnvdQ==
   dependencies:
     brace-expansion "^2.0.1"
 
