@@ -16,7 +16,7 @@
     "@types/node": "*",
     "@types/react": "*",
     "@types/react-dom": "*",
-    "minimatch": ">=7.0.1",
+    "minimatch": ">=7.1.1",
     "otpauth": "*",
     "qrcode-parser": "*",
     "react": "*",
