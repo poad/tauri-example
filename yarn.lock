@@ -8596,9 +8596,9 @@ q@^1.1.2:
   integrity sha512-kV/CThkXo6xyFEZUugw/+pIOywXcDbFYgSct5cT3gqlbkBE1SJdwy6UQoZvodiWF/ckQLZyDE/Bu1M6gVu5lVw==
 
 qrcode-parser@*:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/qrcode-parser/-/qrcode-parser-2.1.0.tgz#c505e8493189c3a1b467028f6db0303831c53ad9"
-  integrity sha512-+Gh+ugrzeZ8PPKH12HnwbONFhHY2enGTkDdG1bj0HjYYVH5QRNRdybnohN77JwmVNq+i4grAsNzmhni95z9MgA==
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/qrcode-parser/-/qrcode-parser-2.1.1.tgz#a734d14b5c375708a60c4def7230897c4bb77634"
+  integrity sha512-k/Ucxm6+woMYixKI1Nie5n3rVYqKmQgj/8zxCgx2QodWNyiOH9+WlEAozZ6dZAmi49m2TKyjJOBE1uX7cNexHw==
   dependencies:
     jsqr "^1.4.0"
 
