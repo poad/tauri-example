@@ -762,9 +762,9 @@
     "@babel/helper-plugin-utils" "^7.21.5"
 
 "@babel/plugin-transform-nullish-coalescing-operator@^7.22.0":
-  version "7.22.0"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-nullish-coalescing-operator/-/plugin-transform-nullish-coalescing-operator-7.22.0.tgz#c24d022ca5dbdf9062c95a64cbe07a1258992f98"
-  integrity sha512-KU2Or7uQqYKcL6rVLh8jThUBAKy1H+mxPx4E1omUqdSL+hVM9NriMjGFnnv+9xSn3jUMV5FQHsLQxgGLr/MWTw==
+  version "7.22.3"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-nullish-coalescing-operator/-/plugin-transform-nullish-coalescing-operator-7.22.3.tgz#8c519f8bf5af94a9ca6f65cf422a9d3396e542b9"
+  integrity sha512-CpaoNp16nX7ROtLONNuCyenYdY/l7ZsR6aoVa7rW7nMWisoNoQNIH5Iay/4LDyRjKMuElMqXiBoOQCDLTMGZiw==
   dependencies:
     "@babel/helper-plugin-utils" "^7.21.5"
     "@babel/plugin-syntax-nullish-coalescing-operator" "^7.8.3"
