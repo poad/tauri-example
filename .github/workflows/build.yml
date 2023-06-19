@@ -54,17 +54,21 @@ jobs:
     - name: Install cross
       run: cargo install cross
     - uses: actions/checkout@v3
+    - uses: pnpm/action-setup@v2
+      name: Install pnpm
+      id: pnpm-install
+      with:
+        version: 8.6.2
+        run_install: |
+          - recursive: true
+            args: [--no-frozen-lockfile, --strict-peer-dependencies]
     - name: Use Node.js 16.x
       uses: actions/setup-node@v3
       with:
         node-version: 16.x
         check-latest: true
-        cache: 'yarn'
-    - name: Install yarn
-      run: |
-        npm -g i npm
-        npm -g i yarn
+        cache: 'pnpm'
     - name: Build
       env:
         BUILD_PATH: ./dist 
-      run: yarn install && yarn lint && yarn build && yarn tauri build
+      run: pnpm lint && pnpm build && pnpm tauri build
