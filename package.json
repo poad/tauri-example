@@ -9,7 +9,6 @@
     "@mui/material": "^5.13.6",
     "@mui/styles": "^5.13.2",
     "@tauri-apps/api": "^1.4.0",
-    "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
     "@types/jest": "^29.5.2",
@@ -53,6 +52,8 @@
   },
   "devDependencies": {
     "@tauri-apps/cli": "^1.4.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@types/testing-library__jest-dom": "^5.14.6",
     "@typescript-eslint/eslint-plugin": "^5.60.1",
     "@typescript-eslint/parser": "^5.60.1",
     "cross-env": "^7.0.3",
