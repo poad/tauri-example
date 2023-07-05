@@ -2167,7 +2167,7 @@ packages:
       '@jest/types': 27.5.1
       '@types/node': 20.3.3
       chalk: 4.1.2
-      collect-v8-coverage: 1.0.1
+      collect-v8-coverage: 1.0.2
       exit: 0.1.2
       glob: 7.2.3
       graceful-fs: 4.2.11
@@ -2206,7 +2206,7 @@ packages:
       '@jridgewell/trace-mapping': 0.3.18
       '@types/node': 20.3.3
       chalk: 4.1.2
-      collect-v8-coverage: 1.0.1
+      collect-v8-coverage: 1.0.2
       exit: 0.1.2
       glob: 7.2.3
       graceful-fs: 4.2.11
@@ -2264,7 +2264,7 @@ packages:
       '@jest/console': 27.5.1
       '@jest/types': 27.5.1
       '@types/istanbul-lib-coverage': 2.0.4
-      collect-v8-coverage: 1.0.1
+      collect-v8-coverage: 1.0.2
     dev: false
 
   /@jest/test-result@28.1.3:
@@ -2274,7 +2274,7 @@ packages:
       '@jest/console': 28.1.3
       '@jest/types': 28.1.3
       '@types/istanbul-lib-coverage': 2.0.4
-      collect-v8-coverage: 1.0.1
+      collect-v8-coverage: 1.0.2
     dev: false
 
   /@jest/test-result@29.6.0:
@@ -2284,7 +2284,7 @@ packages:
       '@jest/console': 29.6.0
       '@jest/types': 29.6.0
       '@types/istanbul-lib-coverage': 2.0.4
-      collect-v8-coverage: 1.0.1
+      collect-v8-coverage: 1.0.2
     dev: true
 
   /@jest/test-sequencer@27.5.1:
@@ -4398,8 +4398,8 @@ packages:
       q: 1.5.1
     dev: false
 
-  /collect-v8-coverage@1.0.1:
-    resolution: {integrity: sha512-iBPtljfCNcTKNAto0KEtDfZ3qzjJvqE3aTGZsbhjSBlorqpXJlaWWtPO35D+ZImoC3KWejX64o+yPGxhWSTzfg==}
+  /collect-v8-coverage@1.0.2:
+    resolution: {integrity: sha512-lHl4d5/ONEbLlJvaJNtsF/Lz+WvB07u2ycqTYbdrq7UypDXailES4valYb2eWiJFxZlVmpGekfqoxQhzyFdT4Q==}
 
   /color-convert@1.9.3:
     resolution: {integrity: sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg==}
@@ -7382,7 +7382,7 @@ packages:
       '@jest/types': 27.5.1
       chalk: 4.1.2
       cjs-module-lexer: 1.2.3
-      collect-v8-coverage: 1.0.1
+      collect-v8-coverage: 1.0.2
       execa: 5.1.1
       glob: 7.2.3
       graceful-fs: 4.2.11
@@ -7413,7 +7413,7 @@ packages:
       '@types/node': 20.3.3
       chalk: 4.1.2
       cjs-module-lexer: 1.2.3
-      collect-v8-coverage: 1.0.1
+      collect-v8-coverage: 1.0.2
       glob: 7.2.3
       graceful-fs: 4.2.11
       jest-haste-map: 29.6.0
