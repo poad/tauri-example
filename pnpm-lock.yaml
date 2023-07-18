@@ -9560,7 +9560,7 @@ packages:
       promise: 8.3.0
       raf: 3.4.1
       regenerator-runtime: 0.13.11
-      whatwg-fetch: 3.6.2
+      whatwg-fetch: 3.6.16
     dev: false
 
   /react-dev-utils@12.0.1(eslint@8.45.0)(typescript@5.1.6)(webpack@5.88.1):
@@ -11268,8 +11268,8 @@ packages:
       iconv-lite: 0.4.24
     dev: false
 
-  /whatwg-fetch@3.6.2:
-    resolution: {integrity: sha512-bJlen0FcuU/0EMLrdbJ7zOnW6ITZLrZMIarMUVmdKtsGvZna8vxKYaexICWPfZ8qwf9fzNq+UEIZrnSaApt6RA==}
+  /whatwg-fetch@3.6.16:
+    resolution: {integrity: sha512-83avoGbZ0qtjtNrU3UTT3/Xd3uZ7DyfSYLuc1fL5iYs+93P+UkIVF6/6xpRVWeQcvbc7kSnVybSAVbd6QFW5Fg==}
     dev: false
 
   /whatwg-mimetype@2.3.0:
