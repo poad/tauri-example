@@ -470,7 +470,7 @@ packages:
       '@babel/helper-plugin-utils': 7.22.5
       '@babel/helper-replace-supers': 7.22.9(@babel/core@7.22.9)
       '@babel/helper-split-export-declaration': 7.22.6
-      '@babel/plugin-syntax-decorators': 7.22.5(@babel/core@7.22.9)
+      '@babel/plugin-syntax-decorators': 7.22.10(@babel/core@7.22.9)
     dev: false
 
   /@babel/plugin-proposal-nullish-coalescing-operator@7.18.6(@babel/core@7.22.9):
@@ -585,8 +585,8 @@ packages:
       '@babel/helper-plugin-utils': 7.22.5
     dev: false
 
-  /@babel/plugin-syntax-decorators@7.22.5(@babel/core@7.22.9):
-    resolution: {integrity: sha512-avpUOBS7IU6al8MmF1XpAyj9QYeLPuSDJI5D4pVMSMdL7xQokKqJPYQC67RCT0aCTashUXPiGwMJ0DEXXCEmMA==}
+  /@babel/plugin-syntax-decorators@7.22.10(@babel/core@7.22.9):
+    resolution: {integrity: sha512-z1KTVemBjnz+kSEilAsI4lbkPOl5TvJH7YDSY1CTIzvLWJ+KHXp+mRe8VPmfnyvqOPqar1V2gid2PleKzRUstQ==}
     engines: {node: '>=6.9.0'}
     peerDependencies:
       '@babel/core': ^7.0.0-0
