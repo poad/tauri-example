@@ -17,13 +17,6 @@
         "dir": "../isolation-dist"
       }
     },
-    "allowlist": {
-      "clipboard": {
-        "all": false,
-        "readText": false,
-        "writeText": true
-      }
-    },
     "bundle": {
       "active": true,
       "category": "DeveloperTool",
@@ -59,9 +52,6 @@
     },
     "security": {
       "csp": "default-src blob: data: filesystem: ws: wss: http: https: tauri: 'unsafe-eval' 'unsafe-inline' 'self' img-src: 'self'"
-    },
-    "updater": {
-      "active": false
     },
     "windows": [
       {
