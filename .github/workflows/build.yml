@@ -54,7 +54,7 @@ jobs:
     - name: Install cross
       run: cargo install cross
     - uses: actions/checkout@v4
-    - uses: pnpm/action-setup@v2
+    - uses: pnpm/action-setup@v3
       name: Install pnpm
       id: pnpm-install
       with:
