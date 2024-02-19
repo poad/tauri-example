@@ -13,7 +13,7 @@
     "@testing-library/user-event": "^14.5.2",
     "@types/jest": "^29.5.12",
     "@types/node": "^20.11.19",
-    "@types/react": "^18.2.55",
+    "@types/react": "^18.2.56",
     "@types/react-dom": "^18.2.19",
     "minimatch": "^9.0.3",
     "otpauth": "^9.2.2",
@@ -25,7 +25,7 @@
     "web-vitals": "^3.5.2"
   },
   "devDependencies": {
-    "@tauri-apps/cli": "^1.5.9",
+    "@tauri-apps/cli": "^1.5.10",
     "@testing-library/jest-dom": "^6.4.2",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
