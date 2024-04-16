@@ -44,12 +44,6 @@
     "prettier": "^3.2.5",
     "ts-jest": "^29.1.2"
   },
-  "pnpm": {
-    "overrides": {
-      "nth-check": "^2.0.1",
-      "postcss": "^8.4.31"
-    }
-  },
   "scripts": {
     "start": "cross-env BROWSER=none react-scripts start",
     "build": "react-scripts build",
