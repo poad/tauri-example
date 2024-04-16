@@ -70,7 +70,6 @@
       "last 1 safari version"
     ]
   },
-  "packageManager": "pnpm@8.6.11",
   "engines": {
     "npm": "use pnpm please!",
     "yarn": "use pnpm please!",
