@@ -5,14 +5,14 @@
   "dependencies": {
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
-    "@mui/icons-material": "^5.15.16",
-    "@mui/material": "^5.15.16",
-    "@mui/styles": "^5.15.16",
+    "@mui/icons-material": "^5.15.17",
+    "@mui/material": "^5.15.17",
+    "@mui/styles": "^5.15.17",
     "@tauri-apps/api": "^1.5.4",
     "@testing-library/react": "^14.3.1",
     "@testing-library/user-event": "^14.5.2",
     "@types/jest": "^29.5.12",
-    "@types/node": "^20.12.8",
+    "@types/node": "^20.12.11",
     "@types/react": "^18.3.1",
     "@types/react-dom": "^18.3.0",
     "minimatch": "^9.0.4",
@@ -25,7 +25,7 @@
     "web-vitals": "^3.5.2"
   },
   "devDependencies": {
-    "@tauri-apps/cli": "^1.5.12",
+    "@tauri-apps/cli": "^1.5.13",
     "@testing-library/jest-dom": "^6.4.5",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
