@@ -18,20 +18,23 @@ function App() {
     callback().then((value) => {
       if (value) {
         setContents(value);
-        const values = value.split('\n').filter((l) => l.length > 0);
+        const values = value.split('\n').filter((l: string) => l.length > 0);
         try {
-          values.map((v) => {
+          values.map((v: string) => {
             return OTPAuth.URI.parse(v);
           });
           if (!otps.includes(value)) {
             setOtps(otps.concat(value));
+            return {};
           }
         } catch (err) {
           setError(JSON.stringify(err));
+          return {};
         }
       }
-    });
-  }, []);
+      return {};
+    }).catch(() => ({}));
+  }, [readTextFile, otps]);
 
   const handleClose = () => {
     setError(undefined);
@@ -51,7 +54,7 @@ function App() {
         writeTextFile(
           contents.length > 0
             ? `${contents}\n${instance.toString()}`
-            : instance.toString()
+            : instance.toString(),
         );
       }
     } catch (e: unknown) {

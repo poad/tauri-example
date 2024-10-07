@@ -46,7 +46,9 @@ jobs:
     steps:
     - name: Install dependency package
       if: matrix.config.os == 'ubuntu-latest'
-      run: sudo apt-get update -qq && sudo apt-get install -y libgtk-3-dev webkit2gtk-4.0 libayatana-appindicator3-dev librsvg2-dev patchelf  --fix-missing
+      run: |
+        sudo apt-get update -qq && \
+        sudo apt-get install -y libwebkit2gtk-4.0-dev build-essential curl wget libssl-dev libgtk-3-dev libappindicator3-dev librsvg2-dev libjavascriptcoregtk-4.1-dev libsoup* --fix-missing
     - name: Add cross build targets
       run: rustup target add ${{ matrix.config.target }}
     - name: Update Rust toolchain

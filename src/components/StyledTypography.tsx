@@ -11,7 +11,7 @@ const StyledTypography = withStyles(() =>
       verticalAlign: 'middle',
       justifyContent: 'center',
     },
-  })
+  }),
 )(Typography);
 
 export default StyledTypography;

@@ -7,17 +7,16 @@ license = ""
 repository = ""
 default-run = "app"
 edition = "2021"
-rust-version = "1.63"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [build-dependencies]
-tauri-build = { version = "*", features = ["isolation"] }
+tauri-build = { version = "^2", features = ["isolation"] }
 
 [dependencies]
 serde_json = "*"
 serde = { version = "*", features = ["derive"] }
-tauri = { version = "*", features = ["clipboard-write-text", "isolation"] }
+tauri = { version = "^2", features = [ "isolation"] }
 dirs = "*"
 
 [features]

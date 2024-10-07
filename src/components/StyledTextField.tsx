@@ -10,7 +10,7 @@ const StyledTextField = withStyles(() =>
         padding: '0.5rem',
       },
     },
-  })
+  }),
 )(TextField);
 
 export default StyledTextField;

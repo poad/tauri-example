@@ -1,6 +1,6 @@
-import { invoke } from '@tauri-apps/api/tauri';
+import { invoke } from '@tauri-apps/api/core';
 
-// eslint-disable-next-line no-unused-vars
+ 
 type ErrorHandler = (error: string) => void;
 
 interface LoadReaponse {

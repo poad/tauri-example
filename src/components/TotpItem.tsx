@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import * as OTPAuth from 'otpauth';
 import {
   Box,
@@ -11,7 +11,7 @@ import {
 import DeleteIcon from '@mui/icons-material/Delete';
 import StyledTypography from './StyledTypography';
 
-// eslint-disable-next-line no-unused-vars
+ 
 type DeleteHandler = (otp: OTPAuth.HOTP | OTPAuth.TOTP) => void;
 
 function TotpItem({
