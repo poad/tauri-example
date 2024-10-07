@@ -50,7 +50,7 @@ if [ $result -ne 0 ]; then
   exit $result
 fi
 
-pnpm build && pnpm tauri build && git commit -am "Bumps node modules" && git push
+pnpm build && pnpm tauri build --ci && git commit -am "Bumps node modules" && git push
 result=$?
 if [ $result -ne 0 ]; then
   cd "${CUR}" || exit
