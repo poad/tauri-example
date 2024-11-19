@@ -4429,9 +4429,9 @@ checksum = "1e9df38ee2d2c3c5948ea468a8406ff0db0b29ae1ffde1bcf20ef305bcc95c51"
 
 [[package]]
 name = "wry"
-version = "0.47.0"
+version = "0.47.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "553ca1ce149982123962fac2506aa75b8b76288779a77e72b12fa2fc34938647"
+checksum = "8055a1afbf8c8cbeefbd7ae209b534e92334665460c0b876188c5deb37f3be4d"
 dependencies = [
  "base64 0.22.1",
  "block2",
