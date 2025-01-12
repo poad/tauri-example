@@ -25,13 +25,13 @@
     "web-vitals": "^4.2.4"
   },
   "devDependencies": {
-    "@eslint/compat": "^1.2.4",
+    "@eslint/compat": "^1.2.5",
     "@stylistic/eslint-plugin": "^2.12.1",
     "@stylistic/eslint-plugin-js": "^2.12.1",
     "@stylistic/eslint-plugin-jsx": "^2.12.1",
     "@stylistic/eslint-plugin-plus": "^2.12.1",
     "@stylistic/eslint-plugin-ts": "^2.12.1",
-    "@tauri-apps/cli": "^2.2.2",
+    "@tauri-apps/cli": "^2.2.4",
     "@testing-library/jest-dom": "^6.6.3",
     "@vitejs/plugin-react": "^4.3.4",
     "cross-env": "^7.0.3",
