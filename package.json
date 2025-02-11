@@ -47,9 +47,9 @@
     "eslint-plugin-react": "^7.37.4",
     "eslint-plugin-react-hooks": "^5.1.0",
     "globals": "^15.14.0",
-    "pnpm": "^10.2.1",
-    "postcss": "^8.5.1",
-    "typescript-eslint": "^8.23.0",
+    "pnpm": "^10.3.0",
+    "postcss": "^8.5.2",
+    "typescript-eslint": "^8.24.0",
     "vite": "^6.1.0",
     "vitest": "^3.0.5"
   },
