@@ -1,11 +1,14 @@
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
+import solidPlugin from 'vite-plugin-solid';
+
 
 const host = process.env.TAURI_DEV_HOST;
 
 // https://vitejs.dev/config/
 export default defineConfig(async () => ({
-  plugins: [react()],
+  plugins: [
+    solidPlugin(),
+  ],
   test: {
     globals: true,
   },
@@ -30,5 +33,8 @@ export default defineConfig(async () => ({
       // 3. tell vite to ignore watching `src-tauri`
       ignored: ["**/src-tauri/**"],
     },
+  },
+  build: {
+    target: 'esnext',
   },
 }));

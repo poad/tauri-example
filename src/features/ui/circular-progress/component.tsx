@@ -4,12 +4,12 @@ export function CircularProgress(params: {
   value: number
 }) {
   return (
-    <div className='circular-container'>
-      <div className='circular-progress' style={{
-        borderRadius: '50%',
-        background: `conic-gradient(#00a63e ${Math.round(params.value) * 3.6}deg, #ededed 0deg)`,
+    <div class='circular-container'>
+      <div class='circular-progress' style={{
+        'border-radius': '50%',
+        background: `conic-gradient(#ededed ${360 - Math.round(params.value) * 3.6}deg, #00a63e 0deg)`,
       }}>
-        <span className='progress-value'>
+        <span class='progress-value'>
           {Math.round(params.value)}
         </span>
       </div>
