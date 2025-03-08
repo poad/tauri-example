@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { createSignal } from 'solid-js';
 import './App.css';
 import qrcodeParser from 'qrcode-parser';
 import * as OTPAuth from 'otpauth';
@@ -8,9 +9,9 @@ import StyledTextField from './components/StyledTextField';
 import TotpItem from './components/TotpItem';
 
 function App() {
-  const [otps, setOtps] = useState<string[]>([]);
-  const [error, setError] = useState<string>();
-  const [contents, setContents] = useState('');
+  const [otps, setOtps] = createSignal<string[]>([]);
+  const [error, setError] = createSignal<string>();
+  const [contents, setContents] = createSignal('');
   const { readTextFile, writeTextFile } = useFile((e) => setError(e));
 
   useEffect(() => {
@@ -23,8 +24,8 @@ function App() {
           values.map((v: string) => {
             return OTPAuth.URI.parse(v);
           });
-          if (!otps.includes(value)) {
-            setOtps(otps.concat(value));
+          if (!otps().includes(value)) {
+            setOtps(otps().concat(value));
             return {};
           }
         } catch (err) {
@@ -49,8 +50,8 @@ function App() {
       }
       const parsed = await qrcodeParser(value);
       const instance = OTPAuth.URI.parse(parsed);
-      if (!otps.includes(instance.toString())) {
-        setOtps(otps.concat(instance.toString()));
+      if (!otps().includes(instance.toString())) {
+        setOtps(otps().concat(instance.toString()));
         writeTextFile(
           contents.length > 0
             ? `${contents}\n${instance.toString()}`
@@ -63,9 +64,9 @@ function App() {
   };
 
   const genNewOpts = (otp: string): { found: boolean; newOtps: string[] } => {
-    const index = otps.findIndex((item) => item === otp);
+    const index = otps().findIndex((item) => item === otp);
     if (index >= 0) {
-      if (otps.length === 1) {
+      if (otps().length === 1) {
         return {
           found: true,
           newOtps: [],
@@ -74,17 +75,17 @@ function App() {
       if (index === 0) {
         return {
           found: true,
-          newOtps: otps.slice(index + 1),
+          newOtps: otps().slice(index + 1),
         };
       }
       return {
         found: true,
-        newOtps: otps.slice(0, index).concat(otps.slice(index + 1)),
+        newOtps: otps().slice(0, index).concat(otps().slice(index + 1)),
       };
     }
     return {
       found: false,
-      newOtps: otps,
+      newOtps: otps(),
     };
   };
 
@@ -102,7 +103,7 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div class="App">
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <StyledTextField type="text" name="uri" onChange={handleInput} />
@@ -125,10 +126,10 @@ function App() {
           position: 'absolute',
           bottom: '0.5rem',
           left: '0.5rem',
-          visibility: error ? 'visible' : 'hidden',
+          visibility: error() ? 'visible' : 'hidden',
         }}
       >
-        {error}
+        {error()}
       </Alert>
     </div>
   );
