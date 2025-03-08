@@ -1,17 +1,11 @@
 import { useEffect, useState } from 'react';
 import * as OTPAuth from 'otpauth';
 import {
-  Box,
-  Button,
   CircularProgress,
-  Grid,
-  Stack,
-  Typography,
-} from '@mui/material';
-import DeleteIcon from '@mui/icons-material/Delete';
-import StyledTypography from './StyledTypography';
+} from './circular-progress';
+import { MdDelete } from 'react-icons/md';
 
- 
+
 type DeleteHandler = (otp: OTPAuth.HOTP | OTPAuth.TOTP) => void;
 
 function TotpItem({
@@ -58,47 +52,39 @@ function TotpItem({
   };
 
   return (
-    <Grid container spacing={1}>
-      <Grid item xs={2}>
-        <Button
-          variant="contained"
-          color="error"
-          sx={{
-            padding: 'none',
-            width: '3rem',
-          }}
-        >
-          <DeleteIcon
-            fontSize="large"
-            sx={{
-              minWidth: '2.5rem',
-              width: '2.5rem',
-              height: '3rem',
-            }}
-            onClick={() => handleDelete(otp)}
-          />
-        </Button>
-      </Grid>
-      <Grid item xs={4.5}>
-        <Stack sx={{ width: '45vw' }}>
-          <Typography variant="h6" sx={{ textAlign: 'left' }}>
+    <div className='flex flex-row px-1'>
+      <div className='w-[40vw]'>
+        <div className='flex flex-col width-[45vw]'>
+          <h6 className='text-left'>
             {otp?.issuer}
-          </Typography>
-          <Typography variant="body1" sx={{ textAlign: 'left' }}>
+          </h6>
+          <p className='text-left'>
             {otp.label}
-          </Typography>
-        </Stack>
-      </Grid>
+          </p>
+        </div>
+      </div>
 
-      <Grid item xs={3.5} sx={{ marginTop: '1rem' }}>
-        <Box onClick={() => token && handleCopy(token)}>
-          <StyledTypography variant="h3">{token}</StyledTypography>
-        </Box>
-      </Grid>
-      <Grid item xs={1} sx={{ marginTop: '0.75rem' }}>
-        <CircularProgress variant="determinate" value={(limit / 30) * 100} />
-      </Grid>
-    </Grid>
+      <div className='w-[40vw] mt-[1rem]'>
+        <button onClick={() => token && handleCopy(token)}>
+          <h3 className='h-[1.75rem] flex flex-col align-middle justify-center text-[3rem]'>
+            {token}
+          </h3>
+        </button>
+      </div>
+
+      <div className='w-[10vw] my-auto'>
+        <CircularProgress value={(limit / 30) * 100} />
+      </div>
+      <div className='w-2'>
+        <button
+          color="error"
+          className='p-0 w-[10vw] my-auto'
+          onClick={() => handleDelete(otp)}
+        >
+          <MdDelete size='3rem' />
+        </button>
+      </div>
+    </div>
   );
 }
 

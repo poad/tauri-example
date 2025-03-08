@@ -3,7 +3,7 @@ name: Build
 on:
   push:
     branches: [ main ]
-  pull_request_target:
+  pull_request:
     branches: [ main ]
 
   workflow_dispatch:
@@ -71,5 +71,5 @@ jobs:
           -  args: [--global, serve ]
     - name: Build
       env:
-        BUILD_PATH: ./dist 
+        BUILD_PATH: ./dist
       run: pnpm lint && pnpm build && pnpm tauri build --ci
