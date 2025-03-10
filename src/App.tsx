@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import qrcodeParser from 'qrcode-parser';
 import * as OTPAuth from 'otpauth';
-import { Alert, Grid } from '@mui/material';
 import useFile from './hooks/useFile';
-import StyledTextField from './components/StyledTextField';
-import TotpItem from './components/TotpItem';
+import StyledTextField from './features/ui/StyledTextField';
+import TotpItem from './features/ui/TotpItem';
+import { Alert } from './features/ui/alert';
 
 function App() {
   const [otps, setOtps] = useState<string[]>([]);
@@ -103,24 +103,21 @@ function App() {
 
   return (
     <div className="App">
-      <Grid container spacing={2}>
-        <Grid item xs={12}>
-          <StyledTextField type="text" name="uri" onChange={handleInput} />
-        </Grid>
+      <div className='flex flex-col'>
+        <StyledTextField type="text" name="uri" onChange={handleInput} />
         {otps.map((otp) => (
-          <Grid key={otp} item xs={12}>
+          <div className='w-full'>
             <TotpItem
               key={otp}
               otp={OTPAuth.URI.parse(otp)}
               onDelete={(o) => handleDelete(o)}
             />
-          </Grid>
+          </div>
         ))}
-      </Grid>
+      </div>
       <Alert
         onClose={handleClose}
-        severity="error"
-        sx={{
+        style={{
           width: 'calc(100% - 1rem)',
           position: 'absolute',
           bottom: '0.5rem',
@@ -128,7 +125,7 @@ function App() {
           visibility: error ? 'visible' : 'hidden',
         }}
       >
-        {error}
+        <>{error}</>
       </Alert>
     </div>
   );
