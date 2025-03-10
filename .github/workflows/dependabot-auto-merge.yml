@@ -14,11 +14,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - name: Dependabot metadata
-        id: metadata
-        uses: dependabot/fetch-metadata@v2
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Enable auto-merge for Dependabot Dependabot Pull Request
         run: |
