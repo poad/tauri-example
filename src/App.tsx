@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { Component, createResource, createSignal, For } from 'solid-js';
 import './App.css';
 import qrcodeParser from 'qrcode-parser';
 import * as OTPAuth from 'otpauth';
@@ -7,50 +7,50 @@ import StyledTextField from './features/ui/StyledTextField';
 import TotpItem from './features/ui/TotpItem';
 import { Alert } from './features/ui/alert';
 
-function App() {
-  const [otps, setOtps] = useState<string[]>([]);
-  const [error, setError] = useState<string>();
-  const [contents, setContents] = useState('');
-  const { readTextFile, writeTextFile } = useFile((e) => setError(e));
+const App: Component = () => {
+  const [otps, setOtps] = createSignal<string[]>([]);
+  const [error, setError] = createSignal<string>();
+  const { readTextFile, writeTextFile } = useFile();
 
-  useEffect(() => {
-    const callback = async () => readTextFile();
-    callback().then((value) => {
-      if (value) {
-        setContents(value);
-        const values = value.split('\n').filter((l: string) => l.length > 0);
-        try {
-          values.map((v: string) => {
-            return OTPAuth.URI.parse(v);
-          });
-          if (!otps.includes(value)) {
-            setOtps(otps.concat(value));
-            return {};
-          }
-        } catch (err) {
-          setError(JSON.stringify(err));
-          return {};
+  const [contents] = createResource<string>(readTextFile);
+  if (!contents.loading && !contents.error) {
+    const value = contents();
+    if (value) {
+      const values = value.split('\n').filter((l: string) => l.length > 0);
+      try {
+        values?.map((v: string) => {
+          OTPAuth.URI.parse(v);
+          return;
+        });
+        if (!otps().includes(value)) {
+          setOtps(otps().concat(value));
+          return;
         }
+      } catch (err) {
+        setError(JSON.stringify(err));
+        return;
       }
-      return {};
-    }).catch(() => ({}));
-  }, [readTextFile, otps]);
+    }
+  } else if (contents.error) {
+    setError(JSON.stringify(contents.error));
+  }
 
   const handleClose = () => {
     setError(undefined);
   };
 
-  const handleInput = async (event: React.FormEvent<HTMLInputElement>) => {
+  async function handleInput(event: Event & { currentTarget: HTMLInputElement; target: HTMLInputElement }) {
     try {
       setError('');
-      const { value } = event.currentTarget;
+      const { value } = event.currentTarget ?? { value: undefined };
       if (!value) {
         return;
       }
       const parsed = await qrcodeParser(value);
       const instance = OTPAuth.URI.parse(parsed);
-      if (!otps.includes(instance.toString())) {
-        setOtps(otps.concat(instance.toString()));
+      const stored = otps();
+      if (!stored.includes(instance.toString())) {
+        setOtps(() => stored.concat(instance.toString()));
         writeTextFile(
           contents.length > 0
             ? `${contents}\n${instance.toString()}`
@@ -63,9 +63,9 @@ function App() {
   };
 
   const genNewOpts = (otp: string): { found: boolean; newOtps: string[] } => {
-    const index = otps.findIndex((item) => item === otp);
+    const index = otps().findIndex((item) => item === otp);
     if (index >= 0) {
-      if (otps.length === 1) {
+      if (otps().length === 1) {
         return {
           found: true,
           newOtps: [],
@@ -74,17 +74,17 @@ function App() {
       if (index === 0) {
         return {
           found: true,
-          newOtps: otps.slice(index + 1),
+          newOtps: otps().slice(index + 1),
         };
       }
       return {
         found: true,
-        newOtps: otps.slice(0, index).concat(otps.slice(index + 1)),
+        newOtps: otps().slice(0, index).concat(otps().slice(index + 1)),
       };
     }
     return {
       found: false,
-      newOtps: otps,
+      newOtps: otps(),
     };
   };
 
@@ -102,18 +102,19 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <div className='flex flex-col'>
+    <div class="App">
+      <div class='flex flex-col'>
         <StyledTextField type="text" name="uri" onChange={handleInput} />
-        {otps.map((otp) => (
-          <div className='w-full'>
-            <TotpItem
-              key={otp}
-              otp={OTPAuth.URI.parse(otp)}
-              onDelete={(o) => handleDelete(o)}
-            />
-          </div>
-        ))}
+        <For each={otps()}>
+          {(otp) => (
+            <div class='w-full px-[1.5rem]'>
+              <TotpItem
+                otp={OTPAuth.URI.parse(otp)}
+                onDelete={(o) => handleDelete(o)}
+              />
+            </div>
+          )}
+        </For>
       </div>
       <Alert
         onClose={handleClose}
@@ -122,13 +123,13 @@ function App() {
           position: 'absolute',
           bottom: '0.5rem',
           left: '0.5rem',
-          visibility: error ? 'visible' : 'hidden',
+          visibility: error() ? 'visible' : 'hidden',
         }}
       >
-        <>{error}</>
+        <>{error()}</>
       </Alert>
     </div>
   );
-}
+};
 
 export default App;

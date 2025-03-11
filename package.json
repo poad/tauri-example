@@ -15,16 +15,12 @@
   "dependencies": {
     "@tauri-apps/api": "^2.3.0",
     "@tauri-apps/plugin-shell": "^2.2.0",
-    "@testing-library/react": "^16.2.0",
     "@testing-library/user-event": "^14.6.1",
     "@types/node": "^22.13.10",
-    "@types/react": "^19.0.10",
-    "@types/react-dom": "^19.0.4",
     "otpauth": "^9.3.6",
     "qrcode-parser": "^2.1.3",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-icons": "^5.5.0"
+    "solid-icons": "^1.1.0",
+    "solid-js": "^1.9.5"
   },
   "devDependencies": {
     "@eslint/compat": "^1.2.7",
@@ -39,7 +35,6 @@
     "@tauri-apps/cli": "^2.3.1",
     "@testing-library/jest-dom": "^6.6.3",
     "@types/css-modules": "^1.0.5",
-    "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.4.21",
     "cross-env": "^7.0.3",
     "eslint": "^9.22.0",
@@ -49,8 +44,7 @@
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-promise": "^7.2.1",
-    "eslint-plugin-react": "^7.37.4",
-    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-solid": "^0.14.5",
     "globals": "^16.0.0",
     "pnpm": "^10.6.2",
     "postcss": "^8.5.3",
@@ -58,6 +52,7 @@
     "typescript": "^5.8.2",
     "typescript-eslint": "^8.26.1",
     "vite": "^6.2.1",
+    "vite-plugin-solid": "^2.11.6",
     "vitest": "^3.0.8"
   },
   "browserslist": {
@@ -82,5 +77,5 @@
       "esbuild": ">=0.25.0"
     }
   },
-  "packageManager": "pnpm@10.6.1+sha512.40ee09af407fa9fbb5fbfb8e1cb40fbb74c0af0c3e10e9224d7b53c7658528615b2c92450e74cfad91e3a2dcafe3ce4050d80bda71d757756d2ce2b66213e9a3"
+  "packageManager": "pnpm@10.6.2+sha512.47870716bea1572b53df34ad8647b42962bc790ce2bf4562ba0f643237d7302a3d6a8ecef9e4bdfc01d23af1969aa90485d4cebb0b9638fa5ef1daef656f6c1b"
 }

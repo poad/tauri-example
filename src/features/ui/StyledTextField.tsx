@@ -5,10 +5,10 @@ function StyledTextField({
 }: {
   type: string;
   name: string;
-  onChange: (eR: React.FormEvent<HTMLInputElement>) => Promise<void>;
+  onChange: (e: Event & { currentTarget: HTMLInputElement; target: HTMLInputElement; }) => Promise<void>;
 }) {
   return (
-    <div style={{ width: 'calc(100% - 3rem)', marginLeft: 'auto', marginRight: 'auto' }}>
+    <div style={{ width: 'calc(100% - 3rem)', 'margin-left': 'auto', 'margin-right': 'auto' }}>
       <input type={type} name={name} style={{ padding: '0.5rem' }} onChange={onChange}></input>
     </div>
   );

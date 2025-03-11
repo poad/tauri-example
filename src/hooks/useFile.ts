@@ -1,33 +1,35 @@
 import { invoke } from '@tauri-apps/api/core';
 
- 
-type ErrorHandler = (error: string) => void;
-
 interface LoadReaponse {
   error: boolean;
   message: string;
   contents: string;
 }
 
-const useFile = (onError: ErrorHandler) => {
-  const readTextFile = async () => {
-    return invoke<LoadReaponse>('load')
-      .then(({ error, message, contents }) => {
-        if (error) {
-          onError(message);
-          return '';
-        }
-        return contents;
-      })
-      .catch(onError);
+interface SaveReaponse {
+  error: boolean;
+  message: string;
+}
+
+function useFile() {
+  async function readTextFile(): Promise<string> {
+    const response = await invoke<LoadReaponse>('load');
+    if (response.error) {
+      throw new Error(response.message);
+    }
+    return response.contents;
   };
 
-  const writeTextFile = async (contents: string) => {
-    invoke('save', {
+  async function writeTextFile(contents: string): Promise<void> {
+    const response = await invoke<SaveReaponse>('save', {
       body: {
         contents,
       },
-    }).catch(onError);
+    });
+    if (response.error) {
+      throw new Error(response.message);
+    }
+    return undefined;
   };
 
   return {

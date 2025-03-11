@@ -161,4 +161,6 @@ dist-ssr
 *.sln
 *.sw?
 
+src-tauri/target
+
 !eslint.config.js

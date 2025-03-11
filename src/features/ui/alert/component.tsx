@@ -1,5 +1,7 @@
-import { JSX } from 'react';
-import { RiCloseCircleLine } from 'react-icons/ri';
+
+import { RiSystemCloseCircleLine } from 'solid-icons/ri';
+import { Show } from 'solid-js';
+import { JSX } from 'solid-js/jsx-runtime';
 
 export function Alert({
   title,
@@ -9,27 +11,27 @@ export function Alert({
 }: {
   title?: string;
   children?: JSX.Element;
-  style?: React.CSSProperties,
+  style?: JSX.CSSProperties,
   onClose?: () => void;
 }) {
   return (
     <div style={style}>
-      <div className="mt-8 flex bg-red-600/10 text-red-500 p-4 rounded-md">
-        <div className=".flex-shrink-0">
-          <RiCloseCircleLine className='block align-middle w-[24px] h-[24px] text-red-500' />
+      <div class="mt-8 flex bg-red-600/10 text-red-500 p-4 rounded-md">
+        <div class=".flex-shrink-0">
+          <RiSystemCloseCircleLine class='block align-middle w-[24px] h-[24px] text-red-500' />
         </div>
-        <div className="ml-3">
-          {title ? <h3 className="font-medium text-sm">{title}</h3> : null}
-          <div className="pt-2 text-sm">{children}</div>
+        <div class="ml-3">
+          {title ? <h3 class="font-medium text-sm">{title}</h3> : null}
+          <div class="pt-2 text-sm">{children}</div>
         </div>
-        {onClose ? (
+        <Show when={onClose}>
           <button
-            className="ml-auto block align-middle w-[24px] h-[24px] text-red-500"
+            class="ml-auto block align-middle w-[24px] h-[24px] text-red-500"
             onClick={onClose}
           >
-            <RiCloseCircleLine />
+            <RiSystemCloseCircleLine />
           </button>
-        ) : <></>}
+        </Show>
       </div>
     </div>
   );
