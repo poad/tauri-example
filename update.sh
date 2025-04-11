@@ -21,7 +21,7 @@ if [ $result -ne 0 ]; then
 fi
 echo ""
 pwd
-npx corepack use pnpm@latest && pnpm install -r && pnpm up -r
+npx pnpm@latest self-update && pnpm install -r && pnpm up -r
 result=$?
 if [ $result -ne 0 ]; then
   cd "${CUR}" || exit
