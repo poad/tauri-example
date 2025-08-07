@@ -81,7 +81,9 @@ function TotpItem({
       </Show>
       <div class='w-2'>
         <button
-          color="error"
+          style={{
+            'color': 'error',
+          }}
           class='p-0 w-[10vw] my-auto'
           onClick={() => handleDelete(otp)}
         >
