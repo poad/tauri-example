@@ -33,7 +33,7 @@
     "@stylistic/eslint-plugin-ts": "^4.4.1",
     "@tailwindcss/postcss": "^4.1.11",
     "@tauri-apps/cli": "^2.7.1",
-    "@testing-library/jest-dom": "^6.6.4",
+    "@testing-library/jest-dom": "^6.7.0",
     "@types/css-modules": "^1.0.5",
     "autoprefixer": "^10.4.21",
     "cross-env": "^10.0.0",
