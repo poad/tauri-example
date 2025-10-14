@@ -46,11 +46,11 @@
     "eslint-plugin-promise": "^7.2.1",
     "eslint-plugin-solid": "^0.14.5",
     "globals": "^16.4.0",
-    "pnpm": "^10.18.2",
+    "pnpm": "^10.18.3",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.14",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.46.0",
+    "typescript-eslint": "^8.46.1",
     "vite": "^7.1.9",
     "vite-plugin-solid": "^2.11.9",
     "vitest": "^3.2.4"
