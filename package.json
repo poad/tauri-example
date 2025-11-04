@@ -25,7 +25,7 @@
   "devDependencies": {
     "@eslint/compat": "^1.4.1",
     "@eslint/eslintrc": "^3.3.1",
-    "@eslint/js": "^9.39.0",
+    "@eslint/js": "^9.39.1",
     "@stylistic/eslint-plugin": "^5.5.0",
     "@stylistic/eslint-plugin-js": "^4.4.1",
     "@stylistic/eslint-plugin-jsx": "^4.4.1",
@@ -37,7 +37,7 @@
     "@types/css-modules": "^1.0.5",
     "autoprefixer": "^10.4.21",
     "cross-env": "^10.1.0",
-    "eslint": "^9.39.0",
+    "eslint": "^9.39.1",
     "eslint-config-import": "^0.13.0",
     "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-flowtype": "^8.0.3",
@@ -50,7 +50,7 @@
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.16",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.46.2",
+    "typescript-eslint": "^8.46.3",
     "vite": "^7.1.12",
     "vite-plugin-solid": "^2.11.10",
     "vitest": "^4.0.6"
@@ -67,5 +67,5 @@
       "last 1 safari version"
     ]
   },
-  "packageManager": "pnpm@10.18.3"
+  "packageManager": "pnpm@10.20.0"
 }
