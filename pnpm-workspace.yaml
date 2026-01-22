@@ -1,12 +1,17 @@
+autoInstallPeers: true
+
+enablePrePostScripts: true
+
+legacyPeerDeps: true
+
 onlyBuiltDependencies:
   - '@tailwindcss/oxide'
   - esbuild
   - unrs-resolver
 
-enablePrePostScripts: true
-legacyPeerDeps: true
-autoInstallPeers: true
-strictPeerDependencies: false
-
 overrides:
   chalk@<5.6.2: '>=5.6.2'
+  seroval@<1.4.1: '>=1.4.1'
+  seroval@<=1.4.0: '>=1.4.1'
+
+strictPeerDependencies: false
