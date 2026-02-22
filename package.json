@@ -37,7 +37,7 @@
     "@types/css-modules": "^1.0.5",
     "autoprefixer": "^10.4.24",
     "cross-env": "^10.1.0",
-    "eslint": "^10.0.0",
+    "eslint": "^10.0.1",
     "eslint-config-import": "^0.13.0",
     "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-flowtype": "^8.0.3",
