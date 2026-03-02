@@ -27,10 +27,6 @@
     "@eslint/eslintrc": "^3.3.4",
     "@eslint/js": "^10.0.1",
     "@stylistic/eslint-plugin": "^5.9.0",
-    "@stylistic/eslint-plugin-js": "^4.4.1",
-    "@stylistic/eslint-plugin-jsx": "^4.4.1",
-    "@stylistic/eslint-plugin-plus": "^4.4.1",
-    "@stylistic/eslint-plugin-ts": "^4.4.1",
     "@tailwindcss/postcss": "^4.2.1",
     "@tauri-apps/cli": "^2.10.0",
     "@testing-library/jest-dom": "^6.9.1",
@@ -38,9 +34,7 @@
     "autoprefixer": "^10.4.27",
     "cross-env": "^10.1.0",
     "eslint": "^10.0.2",
-    "eslint-config-import": "^0.13.0",
     "eslint-import-resolver-typescript": "^4.4.4",
-    "eslint-plugin-flowtype": "^8.0.3",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-promise": "^7.2.1",
@@ -67,5 +61,5 @@
       "last 1 safari version"
     ]
   },
-  "packageManager": "pnpm@10.30.2"
+  "packageManager": "pnpm@10.30.3"
 }
