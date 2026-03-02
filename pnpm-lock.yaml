@@ -87,6 +87,9 @@ importers:
       globals:
         specifier: ^17.4.0
         version: 17.4.0
+      jiti:
+        specifier: ^2.6.1
+        version: 2.6.1
       pnpm:
         specifier: ^10.30.3
         version: 10.30.3
