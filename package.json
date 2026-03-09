@@ -23,8 +23,8 @@
     "solid-js": "^1.9.11"
   },
   "devDependencies": {
-    "@eslint/compat": "^2.0.2",
-    "@eslint/eslintrc": "^3.3.4",
+    "@eslint/compat": "^2.0.3",
+    "@eslint/eslintrc": "^3.3.5",
     "@eslint/js": "^10.0.1",
     "@stylistic/eslint-plugin": "^5.10.0",
     "@tailwindcss/postcss": "^4.2.1",
@@ -33,7 +33,7 @@
     "@types/css-modules": "^1.0.5",
     "autoprefixer": "^10.4.27",
     "cross-env": "^10.1.0",
-    "eslint": "^10.0.2",
+    "eslint": "^10.0.3",
     "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
@@ -41,7 +41,7 @@
     "eslint-plugin-solid": "^0.14.5",
     "globals": "^17.4.0",
     "jiti": "^2.6.1",
-    "pnpm": "^10.30.3",
+    "pnpm": "^10.31.0",
     "postcss": "^8.5.8",
     "tailwindcss": "^4.2.1",
     "typescript": "^5.9.3",
