@@ -21,7 +21,7 @@ jobs:
     steps:
       - name: Pull request auto merge enabler
         if: github.event_name == 'pull_request' && github.actor != 'dependabot[bot]'
-        uses: poad/github-pull-request-auto-merge-enable-action@v3.0.2
+        uses: poad/github-pull-request-auto-merge-enable-action@3a9b27f412592f0eb2cd6649509178e1fcaf3ccf # v3.0.2
         with:
           pull_request_number: ${{ github.event.pull_request.number }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -72,15 +72,15 @@ jobs:
     - name: Install cross
       run: cargo install cross
 
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
     - name: Use Node.js
-      uses: actions/setup-node@v6
+      uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
       with:
         node-version: 'lts/*'
         check-latest: true
         package-manager-cache: false
 
-    - uses: pnpm/action-setup@v5
+    - uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v5.0.0
       name: Install pnpm
       with:
         run_install: |
