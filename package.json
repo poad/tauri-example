@@ -13,7 +13,7 @@
     "lint-fix": "eslint --fix"
   },
   "dependencies": {
-    "@tauri-apps/api": "^2.10.1",
+    "@tauri-apps/api": "^2.11.0",
     "@tauri-apps/plugin-shell": "^2.3.5",
     "@testing-library/user-event": "^14.6.1",
     "@types/node": "^25.6.0",
@@ -28,7 +28,7 @@
     "@eslint/js": "^10.0.1",
     "@stylistic/eslint-plugin": "^5.10.0",
     "@tailwindcss/postcss": "^4.2.4",
-    "@tauri-apps/cli": "^2.10.1",
+    "@tauri-apps/cli": "^2.11.0",
     "@testing-library/jest-dom": "^6.9.1",
     "@types/css-modules": "^1.0.5",
     "autoprefixer": "^10.5.0",
@@ -42,7 +42,7 @@
     "globals": "^17.5.0",
     "jiti": "^2.6.1",
     "pnpm": "^10.33.2",
-    "postcss": "^8.5.12",
+    "postcss": "^8.5.13",
     "tailwindcss": "^4.2.4",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.59.1",
