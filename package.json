@@ -41,7 +41,7 @@
     "eslint-plugin-solid": "^0.14.5",
     "globals": "^17.6.0",
     "jiti": "^2.7.0",
-    "pnpm": "^11.2.1",
+    "pnpm": "^11.2.2",
     "postcss": "^8.5.15",
     "tailwindcss": "^4.3.0",
     "typescript": "^6.0.3",
@@ -62,5 +62,5 @@
       "last 1 safari version"
     ]
   },
-  "packageManager": "pnpm@11.2.1"
+  "packageManager": "pnpm@11.2.2"
 }
