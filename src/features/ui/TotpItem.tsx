@@ -1,7 +1,7 @@
-import * as OTPAuth from 'otpauth';
 import {
   CircularProgress,
 } from './circular-progress';
+import * as OTPAuth from 'otpauth';
 import { AiFillDelete } from 'solid-icons/ai';
 import { createSignal, onCleanup, Show } from 'solid-js';
 

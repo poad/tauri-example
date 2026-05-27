@@ -1,11 +1,11 @@
-import { Component, createResource, createSignal, For } from 'solid-js';
 import './App.css';
-import qrcodeParser from 'qrcode-parser';
-import * as OTPAuth from 'otpauth';
 import useFile from './hooks/useFile';
 import StyledTextField from './features/ui/StyledTextField';
 import TotpItem from './features/ui/TotpItem';
 import { Alert } from './features/ui/alert';
+import { Component, createResource, createSignal, For } from 'solid-js';
+import * as OTPAuth from 'otpauth';
+import qrcodeParser from 'qrcode-parser';
 
 const App: Component = () => {
   const [otps, setOtps] = createSignal<string[]>([]);

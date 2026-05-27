@@ -21,40 +21,21 @@ if [ $result -ne 0 ]; then
 fi
 echo ""
 pwd
-npx pnpm@latest self-update && pnpm install -r && pnpm up -r && pnpm audit --fix override && pnpm up -r && pnpm lint && pnpm build && pnpm install -r --no-frozen-lockfile
-result=$?
-if [ $result -ne 0 ]; then
+if ! (disable-checkout-persist-credentials &&npx pnpm@latest self-update && pnpm install -r && pnpm up -r && pnpm audit --fix override && pnpm up -r && pnpm lint && pnpm build && pnpm install -r --no-frozen-lockfile); then
   cd "${CUR}" || exit
-  exit $result
+  exit 1
 fi
 
-cd "${CURRENT}"/src-tauri || exit
-result=$?
-if [ $result -ne 0 ]; then
+if ! (cd "${CURRENT}"/src-tauri || exit && cargo update); then
   cd "${CUR}" || exit
   exit $result
 fi
 echo ""
 pwd
-cargo update
-result=$?
-if [ $result -ne 0 ]; then
-  cd "${CUR}" || exit
-  exit $result
-fi
 
-cd "${CURRENT}" || exit
-result=$?
-if [ $result -ne 0 ]; then
+if ! (cd "${CURRENT}" || exit && pnpm build && pnpm tauri build --ci && git commit -am "Bumps node modules" && git push); then
   cd "${CUR}" || exit
-  exit $result
-fi
-
-pnpm build && pnpm tauri build --ci && git commit -am "Bumps node modules" && git push
-result=$?
-if [ $result -ne 0 ]; then
-  cd "${CUR}" || exit
-  exit $result
+  exit 1
 fi
 
 cd "${CUR}" || exit
