@@ -91,8 +91,8 @@ importers:
         specifier: ^2.7.0
         version: 2.7.0
       pnpm:
-        specifier: ^11.3.0
-        version: 11.3.0
+        specifier: ^11.4.0
+        version: 11.4.0
       postcss:
         specifier: ^8.5.15
         version: 8.5.15
@@ -1757,8 +1757,8 @@ packages:
     resolution: {integrity: sha512-QP88BAKvMam/3NxH6vj2o21R6MjxZUAd6nlwAS/pnGvN9IVLocLHxGYIzFhg6fUQ+5th6P4dv4eW9jX3DSIj7A==}
     engines: {node: '>=12'}
 
-  pnpm@11.3.0:
-    resolution: {integrity: sha512-LEA9ZZRScodnKx9wVjQ6H3w2NANqZ/+r/MKz11ldhDdo+HhxSNG1fPeVbJBga70ZKFfDY68Z6W0tDsnsV0HSFQ==}
+  pnpm@11.4.0:
+    resolution: {integrity: sha512-8P68fjdVKrSFSUqRQkGzOOCzWAuT1UzjHwCTMBWICGMSkDihtK5OQUoO5jrDW/IRl+mQFyxKaCVkULVjYxCWjw==}
     engines: {node: '>=22.13'}
     hasBin: true
 
@@ -3794,7 +3794,7 @@ snapshots:
 
   picomatch@4.0.4: {}
 
-  pnpm@11.3.0: {}
+  pnpm@11.4.0: {}
 
   possible-typed-array-names@1.1.0: {}
 
