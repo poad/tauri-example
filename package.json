@@ -41,7 +41,7 @@
     "eslint-plugin-solid": "^0.14.5",
     "globals": "^17.8.0",
     "jiti": "^2.7.0",
-    "pnpm": "^11.17.0",
+    "pnpm": "^11.18.0",
     "postcss": "^8.5.24",
     "tailwindcss": "^4.3.3",
     "typescript": "^7.0.2",
