@@ -1,32 +1,24 @@
+packages:
+  - .
+
 allowBuilds:
   esbuild: false
   unrs-resolver: false
 
-autoInstallPeers: true
+blockExoticSubdeps: true
 
-enablePrePostScripts: true
-
-legacyPeerDeps: true
+minimumReleaseAge: 10080 # 7 days in minutes
 
 minimumReleaseAgeExclude:
-  - '@typescript-eslint/eslint-plugin@8.59.4'
-  - '@typescript-eslint/parser@8.59.4'
-  - '@typescript-eslint/project-service@8.59.4'
-  - '@typescript-eslint/scope-manager@8.59.4'
-  - '@typescript-eslint/tsconfig-utils@8.59.4'
-  - '@typescript-eslint/type-utils@8.59.4'
-  - '@typescript-eslint/types@8.59.4'
-  - '@typescript-eslint/typescript-estree@8.59.4'
-  - '@typescript-eslint/utils@8.59.4'
-  - '@typescript-eslint/visitor-keys@8.59.4'
-  - typescript-eslint@8.59.4
-
-onlyBuiltDependencies:
-  - '@tailwindcss/oxide'
-  - esbuild
-  - unrs-resolver
+  - pnpm@11.20.0
+  - js-yaml@4.3.1
 
 overrides:
-  minimatch@<10.2.1: '>=10.2.1'
+  js-yaml@>=4.0.0 <4.3.1: ^4.3.1
+  semver: '>=7'
+
+publishBranch: main
 
 strictPeerDependencies: false
+
+trustPolicy: no-downgrade
