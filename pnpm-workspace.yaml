@@ -10,7 +10,7 @@ blockExoticSubdeps: true
 minimumReleaseAge: 10080 # 7 days in minutes
 
 minimumReleaseAgeExclude:
-  - pnpm@11.20.0
+  - pnpm@11.21.0
   - js-yaml@4.3.1
 
 overrides:
