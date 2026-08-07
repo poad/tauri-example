@@ -27,7 +27,7 @@ serde_json = ">=1"
 dirs = ">=6"
 
 [target.'cfg(unix)'.dependencies]
-glib = ">=0.22.2"
+glib = ">=0.22.8"
 
 [features]
 # by default Tauri runs in production mode
