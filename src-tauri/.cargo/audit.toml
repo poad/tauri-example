@@ -1,0 +1,43 @@
+[advisories]
+# glib 0.18.5 unsoundness in VariantStrIter (GHSA-wrw7-89jp-8q8g)
+# This is a transitive dependency of webkit2gtk (via wry) on Linux,
+# which requires GTK3 (gtk-rs v0.18). The GTK3 Rust bindings are
+# unmaintained and cannot be upgraded to use glib >= 0.20.
+# Upstream tracking: https://github.com/tauri-apps/tauri/issues/12561
+# Risk assessment: VariantStrIter is not used in Tauri's Linux code paths.
+ignore = [
+    # glib 0.18.5 unsoundness in VariantStrIter
+    "RUSTSEC-2024-0429",
+    # gtk-rs GTK3 bindings are no longer maintained (atk)
+    "RUSTSEC-2024-0411",
+    # gtk-rs GTK3 bindings are no longer maintained (gdk)
+    "RUSTSEC-2024-0412",
+    # gtk-rs GTK3 bindings are no longer maintained (atk)
+    "RUSTSEC-2024-0413",
+    # gtk-rs GTK3 bindings are no longer maintained (gdkx11-sys)
+    "RUSTSEC-2024-0414",
+    # gtk-rs GTK3 bindings are no longer maintained (gtk)
+    "RUSTSEC-2024-0415",
+    # gtk-rs GTK3 bindings are no longer maintained (atk-sys)
+    "RUSTSEC-2024-0416",
+    # gtk-rs GTK3 bindings are no longer maintained (gdkx11)
+    "RUSTSEC-2024-0417",
+    # gtk-rs GTK3 bindings are no longer maintained (gdk-sys)
+    "RUSTSEC-2024-0418",
+    # gtk-rs GTK3 bindings are no longer maintained (gtk3-macros)
+    "RUSTSEC-2024-0419",
+    # gtk-rs GTK3 bindings are no longer maintained (gtk-sys)
+    "RUSTSEC-2024-0420",
+    # proc-macro-error is unmaintained
+    "RUSTSEC-2024-0370",
+    # unic-char-range is unmaintained (used by urlpattern 0.3.0 via tauri-utils)
+    "RUSTSEC-2025-0075",
+    # unic-common is unmaintained (used by urlpattern 0.3.0 via tauri-utils)
+    "RUSTSEC-2025-0080",
+    # unic-char-property is unmaintained (used by urlpattern 0.3.0 via tauri-utils)
+    "RUSTSEC-2025-0081",
+    # unic-ucd-version is unmaintained (used by urlpattern 0.3.0 via tauri-utils)
+    "RUSTSEC-2025-0098",
+    # unic-ucd-ident is unmaintained (used by urlpattern 0.3.0 via tauri-utils)
+    "RUSTSEC-2025-0100",
+]
