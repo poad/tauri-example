@@ -3,6 +3,7 @@ packages:
 
 allowBuilds:
   esbuild: false
+  pnpm: false
   unrs-resolver: false
 
 blockExoticSubdeps: true
@@ -11,7 +12,6 @@ minimumReleaseAge: 10080 # 7 days in minutes
 
 minimumReleaseAgeExclude:
   - pnpm@12.17.0
-  - js-yaml@4.3.1
   - '@vitest/mocker@5.1.0'
   - '@vitest/spy@5.1.0'
   - vitest@5.1.0
@@ -19,6 +19,7 @@ minimumReleaseAgeExclude:
 overrides:
   js-yaml@>=4.0.0 <4.3.1: ^4.3.1
   semver: '>=7'
+  minimatch: '>=11.0.1'
 
 publishBranch: main
 
