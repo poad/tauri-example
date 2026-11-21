@@ -1,19 +1,32 @@
 import './App.css';
-import useFile from './hooks/useFile';
+import { Alert } from './features/ui/alert';
 import StyledTextField from './features/ui/StyledTextField';
 import TotpItem from './features/ui/TotpItem';
-import { Alert } from './features/ui/alert';
-import { Component, createResource, createSignal, For } from 'solid-js';
+import useFile from './hooks/useFile';
+
 import * as OTPAuth from 'otpauth';
 import qrcodeParser from 'qrcode-parser';
+import { Component, createEffect, createSignal, For, isPending } from 'solid-js';
 
 const App: Component = () => {
+  const [contents, setContents] = createSignal<string>();
   const [otps, setOtps] = createSignal<string[]>([]);
   const [error, setError] = createSignal<string>();
   const { readTextFile, writeTextFile } = useFile();
 
-  const [contents] = createResource<string>(readTextFile);
-  if (!contents.loading && !contents.error) {
+  createEffect(
+    () => undefined,
+    () => {
+      readTextFile()
+        .then((value) => {
+          setContents(value);
+          return;
+        })
+        .catch((err) => setError(JSON.stringify(err)));
+    },
+  );
+
+  if (!isPending(contents) && !contents()) {
     const value = contents();
     if (value) {
       const values = value.split('\n').filter((l: string) => l.length > 0);
@@ -31,15 +44,15 @@ const App: Component = () => {
         return;
       }
     }
-  } else if (contents.error) {
-    setError(JSON.stringify(contents.error));
   }
 
   const handleClose = () => {
     setError(undefined);
   };
 
-  async function handleInput(event: Event & { currentTarget: HTMLInputElement; target: HTMLInputElement }) {
+  async function handleInput(
+    event: Event & { currentTarget: HTMLInputElement; target: HTMLInputElement },
+  ) {
     try {
       setError('');
       const { value } = event.currentTarget ?? { value: undefined };
@@ -52,15 +65,13 @@ const App: Component = () => {
       if (!stored.includes(instance.toString())) {
         setOtps(() => stored.concat(instance.toString()));
         writeTextFile(
-          contents.length > 0
-            ? `${contents}\n${instance.toString()}`
-            : instance.toString(),
+          contents.length > 0 ? `${contents}\n${instance.toString()}` : instance.toString(),
         );
       }
     } catch (e: unknown) {
       setError(JSON.stringify(e));
     }
-  };
+  }
 
   const genNewOpts = (otp: string): { found: boolean; newOtps: string[] } => {
     const index = otps().findIndex((item) => item === otp);
@@ -79,7 +90,9 @@ const App: Component = () => {
       }
       return {
         found: true,
-        newOtps: otps().slice(0, index).concat(otps().slice(index + 1)),
+        newOtps: otps()
+          .slice(0, index)
+          .concat(otps().slice(index + 1)),
       };
     }
     return {
@@ -93,25 +106,20 @@ const App: Component = () => {
     const { found, newOtps } = genNewOpts(otpStr);
     if (found) {
       const outputContents =
-        newOtps.length > 0
-          ? newOtps.reduce((acc, cur) => `${acc}\n${cur}`)
-          : '';
+        newOtps.length > 0 ? newOtps.reduce((acc, cur) => `${acc}\n${cur}`) : '';
       writeTextFile(outputContents);
       setOtps(newOtps);
     }
   };
 
   return (
-    <div class="App">
+    <div class='App'>
       <div class='flex flex-col'>
-        <StyledTextField type="text" name="uri" onChange={handleInput} />
+        <StyledTextField type='text' name='uri' onChange={handleInput} />
         <For each={otps()}>
           {(otp) => (
             <div class='w-full px-[1.5rem]'>
-              <TotpItem
-                otp={OTPAuth.URI.parse(otp)}
-                onDelete={(o) => handleDelete(o)}
-              />
+              <TotpItem otp={OTPAuth.URI.parse(otp)} onDelete={(o) => handleDelete(o)} />
             </div>
           )}
         </For>

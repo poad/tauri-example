@@ -18,7 +18,7 @@ function useFile() {
       throw new Error(response.message);
     }
     return response.contents;
-  };
+  }
 
   async function writeTextFile(contents: string): Promise<void> {
     const response = await invoke<SaveReaponse>('save', {
@@ -30,12 +30,12 @@ function useFile() {
       throw new Error(response.message);
     }
     return undefined;
-  };
+  }
 
   return {
     readTextFile,
     writeTextFile,
   };
-};
+}
 
 export default useFile;

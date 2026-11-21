@@ -1,7 +1,14 @@
+import App from './App.jsx';
 /* @refresh reload */
 import './index.css';
-import App from './App';
-import { render } from 'solid-js/web';
 
+import { createRouter } from '@solidjs/router';
+import { render } from '@solidjs/web';
 
-render(() => <App />, document.getElementById('root') as HTMLElement);
+const Router = createRouter({
+  routes: [{ path: '/', component: App }],
+});
+const root = document.getElementById('root');
+if (root) {
+  render(() => <Router>{(props) => props.children}</Router>, root);
+}
