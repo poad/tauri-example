@@ -20,7 +20,7 @@
 }
 
 .circular-progress::before {
-  content: "";
+  content: '';
   position: absolute;
   height: 25px;
   width: 25px;

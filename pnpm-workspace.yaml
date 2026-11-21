@@ -26,6 +26,7 @@ minimumReleaseAgeExclude:
   - eslint-plugin-solid@0.20.0
   - '@solidjs/router@2.0.0'
   - '@solidjs/vite-plugin@3.0.1'
+  - solid-icons@2.0.0
 
 overrides:
   js-yaml@>=4.0.0 <4.3.1: ^4.3.1

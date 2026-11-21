@@ -1,10 +1,8 @@
-import {
-  CircularProgress,
-} from './circular-progress';
+import { CircularProgress } from './circular-progress/index.js';
+
 import * as OTPAuth from 'otpauth';
 import { AiFillDelete } from 'solid-icons/ai';
 import { createSignal, onCleanup, Show } from 'solid-js';
-
 
 type DeleteHandler = (otp: OTPAuth.HOTP | OTPAuth.TOTP) => void;
 
@@ -47,22 +45,18 @@ function TotpItem({
 
   function handleCopy(text: string) {
     navigator.clipboard.writeText(text);
-  };
+  }
 
   function handleDelete(o: OTPAuth.HOTP | OTPAuth.TOTP) {
     onDelete(o);
-  };
+  }
 
   return (
     <div class='flex flex-row px-1 pt-4'>
       <div class='w-[12rem]'>
         <div class='flex flex-col width-[45vw]'>
-          <h6 class='text-left'>
-            {otp?.issuer}
-          </h6>
-          <p class='text-left'>
-            {otp.label}
-          </p>
+          <h6 class='text-left'>{otp?.issuer}</h6>
+          <p class='text-left'>{otp.label}</p>
         </div>
       </div>
 
@@ -82,7 +76,7 @@ function TotpItem({
       <div class='w-2'>
         <button
           style={{
-            'color': 'error',
+            color: 'error',
           }}
           class='p-0 w-[10vw] my-auto'
           onClick={() => handleDelete(otp)}
@@ -90,7 +84,7 @@ function TotpItem({
           <AiFillDelete size='3rem' />
         </button>
       </div>
-    </div >
+    </div>
   );
 }
 

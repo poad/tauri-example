@@ -7,12 +7,6 @@
   "jsxSingleQuote": true,
   "trailingComma": "all",
   "sortImports": {
-    "groups": [
-      "builtin",
-      ["parent", "sibling", "index"],
-      "external",
-      "type-import",
-      "unknown"
-    ]
+    "groups": ["builtin", ["parent", "sibling", "index"], "external", "type-import", "unknown"]
   }
 }
