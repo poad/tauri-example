@@ -13,7 +13,7 @@
     "lint-fix": "oxfmt && oxlint --fix"
   },
   "dependencies": {
-    "@solidjs/router": "^2.0.0",
+    "@solidjs/router": "^2.0.1",
     "@solidjs/web": "^2.0.3",
     "@tauri-apps/api": "^2.12.5",
     "@tauri-apps/plugin-shell": "^2.6.0",
